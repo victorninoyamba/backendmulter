@@ -8,7 +8,7 @@ export default function Login() {
     e.preventDefault();
 
     console.log(email, password);
-    fetch("http://localhost:5000/login-user", {
+    fetch("http://localhost:5000/api/user/login-user", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -86,7 +86,6 @@ export default function Login() {
     //   </div>
     // );
     <>
-      window.location.reload();
       <div className="flex mt-10 justify-center">
         <form onSubmit={handleSubmit} className="w-1/2">
           <div className="mb-6">

@@ -1,15 +1,27 @@
 {
-  "name": "img_front",
+  "name": "react-login-signup-ui-template",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^0.27.2",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-scripts": "5.0.1",
+    "axios": "^1.4.0",
+    "bootstrap": "^5.1.3",
+    "flowbite": "^1.6.6",
+    "flowbite-react": "^0.4.9",
+    "react": "^18.0.0",
+    "react-icons": "^4.10.1",
+    "react-dom": "^18.2.0",
+    "react-file-base64": "^1.0.3",
+    "react-paginate": "^8.1.4",
+    "react-router-dom": "^6.14.0",
+    "react-scripts": "^5.0.1",
+    "recharts": "^2.7.2",
+    "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -35,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
   }
 }
