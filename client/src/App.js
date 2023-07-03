@@ -39,6 +39,13 @@ function App() {
     <Router>
       <div className="App bg-white">
         <Routes>
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route
+            path="/sign-in"
+            element={
+              isAuthenticated(false) ? handleUnauthorizedAccess() : <Login />
+            }
+          />
           <Route
             exact
             path="/"
@@ -160,16 +167,6 @@ function App() {
             }
           />
         </Routes>
-        <Routes>
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route
-            path="/sign-in"
-            element={
-              isAuthenticated(false) ? handleUnauthorizedAccess() : <Login />
-            }
-          />
-        </Routes>
-        {/* <ImageUpload/> */}
       </div>
     </Router>
   );

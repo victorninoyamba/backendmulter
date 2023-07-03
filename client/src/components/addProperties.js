@@ -20,39 +20,28 @@ export default function AddProperties() {
   const [store, setStore] = useState("");
   const [hospital, setHospital] = useState("");
   const [neighborhoodvicinity, setNeighborhoodvicinity] = useState("");
-  const [img1, setImg1] = useState("");
-  const [img2, setImg2] = useState("");
-  const [img3, setImg3] = useState("");
-  const [img4, setImg4] = useState("");
-  const [img5, setImg5] = useState("");
-  const [img6, setImg6] = useState("");
+  const [images, setImages] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (
-      (propertytype &&
-        sellingprice &&
-        description &&
-        bedrooms &&
-        bathrooms &&
-        carparks &&
-        floorarea &&
-        homefeatures &&
-        neighborhoodfeatures &&
-        foodhubs &&
-        grocery &&
-        gym &&
-        school &&
-        store &&
-        hospital &&
-        neighborhoodvicinity &&
-        img1) ||
-      img2 ||
-      img3 ||
-      img4 ||
-      img5 ||
-      img6
+      propertytype &&
+      sellingprice &&
+      description &&
+      bedrooms &&
+      bathrooms &&
+      carparks &&
+      floorarea &&
+      homefeatures &&
+      neighborhoodfeatures &&
+      foodhubs &&
+      grocery &&
+      gym &&
+      school &&
+      store &&
+      hospital &&
+      neighborhoodvicinity
     ) {
       console.log(
         propertytype,
@@ -70,15 +59,9 @@ export default function AddProperties() {
         school,
         store,
         hospital,
-        neighborhoodvicinity,
-        img1,
-        img2,
-        img3,
-        img4,
-        img5,
-        img6
+        neighborhoodvicinity
       );
-      fetch("http://localhost:5000/addproperty", {
+      fetch("http://localhost:5000/api/property/addproperty", {
         method: "POST",
         crossDomain: true,
         headers: {
@@ -103,12 +86,7 @@ export default function AddProperties() {
           store,
           hospital,
           neighborhoodvicinity,
-          img1,
-          img2,
-          img3,
-          img4,
-          img5,
-          img6,
+          images: [images],
         }),
       })
         .then((res) => res.json())
@@ -140,7 +118,11 @@ export default function AddProperties() {
         <div className="pt-5 pb-5 w-full">
           <div className="w-full  p-6 bg-white border border-gold rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <h1 className="text-lg">Property Information</h1>
-            <form onSubmit={handleSubmit} className="w-full">
+            <form
+              onSubmit={handleSubmit}
+              enctype="multipart/form-data"
+              className="w-full"
+            >
               <div className="grid gap-6 mb-6 md:grid-cols-2"></div>
 
               <label
@@ -383,37 +365,37 @@ export default function AddProperties() {
                   <Label htmlFor="file" value="Upload files" />
                 </div>
                 <FileInput
-                  onChange={(e) => setImg1(e.target.value)}
+                  onChange={(e) => setImages(e.target.value)}
                   helperText="Please choose image 1"
                   id="file"
                 />
                 <div className="mb-2 block"></div>
                 <FileInput
-                  onChange={(e) => setImg2(e.target.value)}
+                  onChange={(e) => setImages(e.target.value)}
                   helperText="Please choose image 2"
                   id="file"
                 />
                 <div className="mb-2 block"></div>
                 <FileInput
-                  onChange={(e) => setImg3(e.target.value)}
+                  onChange={(e) => setImages(e.target.value)}
                   helperText="Please choose image 3"
                   id="file"
                 />
                 <div className="mb-2 block"></div>
                 <FileInput
-                  onChange={(e) => setImg4(e.target.value)}
+                  onChange={(e) => setImages(e.target.value)}
                   helperText="Please choose image 4"
                   id="file"
                 />
                 <div className="mb-2 block"></div>
                 <FileInput
-                  onChange={(e) => setImg5(e.target.value)}
+                  onChange={(e) => setImages(e.target.value)}
                   helperText="Please choose image 5"
                   id="file"
                 />
                 <div className="mb-2 block"></div>
                 <FileInput
-                  onChange={(e) => setImg6(e.target.value)}
+                  onChange={(e) => setImages(e.target.value)}
                   helperText="Please choose image 6"
                   id="file"
                 />
